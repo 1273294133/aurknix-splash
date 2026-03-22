@@ -19,7 +19,7 @@ all: $(TARGET)
 
 # Link object files to create the final executable
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS)
+	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS) -lm
 
 # Generic rule for compiling .c files into .o files
 %.o: %.c
