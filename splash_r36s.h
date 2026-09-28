@@ -2,8 +2,8 @@
 #define SPLASH_R36S_H
 
 /*
- * R36S splash: big "R36S" (blue/red alternating) centered,
- * small "AURKNIX" gray right-aligned bottom line (canvas 1284x720)
+ * R36S splash: big "R36S" centered (R/S blue, 3/6 red),
+ * small "AURKNIX" light-gray right-aligned bottom line (canvas 1284x720)
  */
 const char *svg_paths[] = {
     "M195.397 260.851Q215.658 260.851 233.24 245.78Q233.24 211.453 215.658 196.718L168.271 196.718L168.271 260.851ZM168.271 305.392L168.271 400L103.803 400L103.803 150L202.262 150Q251.66 150 297.708 183.155Q297.708 243.771 273.763 275.586Q262.879 286.135 283.81 307.401L329.523 400L260.869 400L230.394 337.877Q221.184 319.123 202.262 305.392Z",
@@ -22,8 +22,8 @@ const char *svg_paths[] = {
 const char *svg_colors[] = {
     "rgb(85,85,255)",
     "rgb(255,85,85)",
-    "rgb(85,85,255)",
     "rgb(255,85,85)",
+    "rgb(85,85,255)",
     "rgb(175,175,175)",
     "rgb(175,175,175)",
     "rgb(175,175,175)",
