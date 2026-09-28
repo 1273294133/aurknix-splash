@@ -8,7 +8,11 @@
 
 /* Original SVG dimensions used for scaling calculations */
 static const float BASE_SVG_WIDTH = 1284.0f;
+#ifdef R36S_SPLASH
 static const float BASE_SVG_HEIGHT = 720.0f;
+#else
+static const float BASE_SVG_HEIGHT = 500.0f;
+#endif
 
 /* Structure to track path intersections with scanlines */
 typedef struct {

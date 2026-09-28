@@ -33,3 +33,8 @@ install: $(TARGET)
 # Clean target removes all generated files
 clean:
 	rm -f $(OBJS) $(TARGET)
+
+# RK3326-family devices (R36S etc.) get the R36S splash brand
+ifneq ($(filter RK3326%,$(DEVICE)),)
+CFLAGS += -DR36S_SPLASH
+endif
