@@ -190,13 +190,23 @@ DisplayInfo* calculate_display_info(Framebuffer *fb) {
     info->screen_height = fb->vinfo.yres;
 
     // Calculate SVG dimensions to fit in screen while maintaining aspect ratio
-    float target_width = info->screen_width * 0.6f;  // Use 60% of screen width
-    float target_height = target_width * (500.0f / 1284.0f);  // Maintain SVG aspect ratio
+    // Calculate SVG dimensions to fit in screen while maintaining aspect ratio
+    // AURKNIX: the R36S-branded canvas is 1284x720 (taller wordmark) and is
+    // scaled to 95% of screen width; other devices keep the original 1284x500
+    // canvas fitted at 60% of screen width.
+    float canvas_ratio = 500.0f / 1284.0f;
+    float screen_scale = 0.6f;
+#ifdef R36S_SPLASH
+    canvas_ratio = 720.0f / 1284.0f;
+    screen_scale = 0.95f;
+#endif
+    float target_width = info->screen_width * screen_scale;
+    float target_height = target_width * canvas_ratio;
 
     // Adjust if height is too large
-    if (target_height > info->screen_height * 0.6f) {
-        target_height = info->screen_height * 0.6f;
-        target_width = target_height * (1284.0f / 500.0f);
+    if (target_height > info->screen_height * screen_scale) {
+        target_height = info->screen_height * screen_scale;
+        target_width = target_height / canvas_ratio;
     }
 
     // Set final dimensions and calculate centering offsets
